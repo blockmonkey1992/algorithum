@@ -1,9 +1,6 @@
 package ktw.s4;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * K번째 큰 수
@@ -27,7 +24,8 @@ public class E {
 
     private static int solution(List<Integer> input, int K) {
 
-        List<Integer> cases = new ArrayList<>();
+        // 레드블랙트리 자료구조로, 순서를 보장하고 중복이 없는 자료구조 활용. (Default : ASC Order)
+        TreeSet<Integer> cases = new TreeSet<>(Collections.reverseOrder());
 
         for (int i = 0; i < input.size(); i++) {
             int aPointer = input.get(i);
@@ -44,9 +42,6 @@ public class E {
             }
         }
 
-        cases.sort(Comparator.reverseOrder());
-        System.out.println(cases);
-
-        return cases.get(K-1);
+        return cases.stream().skip(K-1).findFirst().orElse(-1);
     }
 }

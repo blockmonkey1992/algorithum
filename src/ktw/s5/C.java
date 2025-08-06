@@ -59,7 +59,7 @@ public class C {
 
         while(!moves.isEmpty()) {
             boolean found = false;
-            int j = moves.removeFirst();
+            int j = moves.remove(0);
 
             for (int i = 0; i < board.size(); i++) {
                 int target = board.get(i).get(j-1);
@@ -69,7 +69,7 @@ public class C {
                     board.get(i).set(j - 1, 0);
 
                     // 만약 버킷이 있고 && 버킷의 마지막 값 == 꺼낸인형 ?
-                    if (!bucket.isEmpty() && bucket.getLast() == target) {
+                    if (!bucket.isEmpty() && bucket.lastElement() == target) {
                         bucket.pop();
                         result += 2; // 두 개 터짐
                     } else {

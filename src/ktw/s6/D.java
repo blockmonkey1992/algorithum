@@ -32,10 +32,6 @@ public class D {
         for (int i = 0; i < input.length; i++) {
             int cashMissCount = 0;
             int findNumber = input[i];
-
-            boolean contains = queue.contains(findNumber);
-
-
             // Cache Hit ->
             // 찾는 숫자를 뽑아서 -> 맨 앞으로 옮긴다.
             if(queue.contains(findNumber)) {
